@@ -5,3 +5,8 @@ body {
     background-size: cover;
     background-position: center center;
 }
+
+.container-dark {
+  color: #fff;
+  background: rgba(0,0,0,0.8); padding: 2em 0
+}

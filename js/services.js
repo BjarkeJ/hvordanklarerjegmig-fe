@@ -1,10 +1,10 @@
 app.factory('benchmarkService', function($resource) {
-	
+
 
 	// return $resource('/');
 
 	return {
-		get: function(cvrNr, callback) {
+		get: function(params, callback) {
 
 			var benchmark = {
 				nogletal1: 123,
@@ -12,7 +12,8 @@ app.factory('benchmarkService', function($resource) {
 				nogletal3: 345,
 				nogletal4: 567
 			};
+
 			return callback(benchmark);
 		}
-	}
+	};
 });

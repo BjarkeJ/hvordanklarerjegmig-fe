@@ -9,10 +9,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: "/",
       templateUrl: "templates/home.html",
       controller: "ctrl"
-    })
-    .state('benchmark', {
-      url: "/benchmark",
-      templateUrl: "templates/result.html",
-      controller: "ctrl"
     });
+    // .state('benchmark', {
+    //   url: "/benchmark",
+    //   templateUrl: "templates/result.html",
+    //   controller: "ctrl"
+    // });
 });

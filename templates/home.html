@@ -7,42 +7,60 @@
 	  <div class="input-group input-group-lg">
 	    <input type="text" class="form-control" ng-model="cvrNr" id="cvrInput" placeholder="Dit CVR. nummer">
 	    <span class="input-group-btn">
-		  	<button type="submit" class="btn btn-success" ng-click="getBenchmark()">Benchmark nu!</button>
+		  	<button type="submit" class="btn btn-primary" ng-disabled="loading" ng-click="getBenchmark()">Benchmark nu!</button>
 	  	</span>
 	  </div>
 	</form>
 </div>
 <br><br>
 
-<div class="jumbotron container" ng-show="benchmark" style="color: #fff;
-    background: rgba(0,0,0,0.7);">
-	
-	<div class="row">
-		<div class="col-sm-10 col-sm-offset-1">
-		<h1>Hackathon ApS</h1>
-		<p>Du bliver her sammmenlignet med konkurrenter som:</p>
+<div ng-show="benchmark" >
 
-		  <label><input type="checkbox" checked> er inde for <u>samme branch </u></label>
-		  <label><input type="checkbox" checked> i <u>sjælland </u></label>
-		  <label><input type="checkbox" checked> med <u>1-5 ansatte </u></label>
+	<div class="container container-dark">
 
-		<p>På baggrund af dit 2015 regnskab</p>
-	</div>
-	<div class="row">
-		<div class="col-sm-5 col-sm-offset-1">
-		1
-		</div>
-		<div class="col-sm-5 col-sm-offset-1">
-		2
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-5 col-sm-offset-1">
-		3
-		</div>
-		<div class="col-sm-5 col-sm-offset-1">
-		4
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+				<h1>Hackathon ApS</h1>
+				<p style="color: #AAA">CVR: 1234</p>
+				<p>Din virksomhed bliver her sammmenlignet med konkurrenter som:</p>
+
+				  <label><input type="checkbox" checked> er inde for <span class="badge">samme branch </span></label>
+				  <label><input type="checkbox" checked> i <span class="badge">sjælland </span></label>
+				  <label><input type="checkbox" checked> med <span class="badge">1-5 ansatte </span></label>
+
+				<p>På baggrund af dit <span class="badge"> 2015</span> regnskab</p>
+			</div>
 		</div>
 	</div>
-{{ benchmark }}
+
+
+	<div class="clearfix" style="height: 2em;"></div>
+
+	<div class="container container-dark">
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+				<h2>Overskud</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-5 col-sm-offset-1">
+			<h3>Solidaritetsgrad</h3>
+			</div>
+			<div class="col-sm-5 col-sm-offset-1">
+			<h3>Likviditetsgrad</h3>
+			</div>
+		</div>
+		<div class="clearfix" style="height: 2em;"></div>
+		<div class="row">
+			<div class="col-sm-5 col-sm-offset-1">
+				<h3>Afkastsgrad</h3>
+			</div>
+			<div class="col-sm-5 col-sm-offset-1">
+				<h3>Yolo</h3>
+			</div>
+		</div>
+	</div>
+
 </div>
+
+	{{ benchmark }}
