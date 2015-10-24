@@ -1,17 +1,17 @@
 app.factory('benchmarkService', function($resource, $http) {
 
 	return {
-		get: function(cvr, callback) {
+		get: function(params, callback) {
 			console.log('requesting')
-      console.log(cvr.cvrNr);
-      var cvr = cvr.cvrNr;
+      console.log(params.cvrNr);
+      var cvr = params.cvrNr;
 			var req = $http({
 				method: 'GET',
-				url: 'http://ec2-52-28-110-186.eu-central-1.compute.amazonaws.com:4299/metrics/' + cvr + '?industry=true&area=true&employees=true'
+				url: 'http://ec2-52-28-110-186.eu-central-1.compute.amazonaws.com:4299/metrics/' + cvr + '?industry=' + (params.industry ? 'true' : '') + '&area=' + (params.area ? 'true' : '') + '&employees=' + (params.employees ? 'true' : '')
 			}).then(function successCallback(res) {
 		    // this callback will be called asynchronously
 		    // when the response is available
-        callback(null, res.data);
+        callback(null, decorateData(res.data));
 		  }, function errorCallback(res) {
 		    // called asynchronously if an error occurs
 		    // or server returns response with an error status.
@@ -92,3 +92,13 @@ app.factory('benchmarkService', function($resource, $http) {
 	// 	}
 	// };
 });
+
+var areaMap = {
+    16: 'København'
+}
+function decorateData(data) {
+    if (areaMap[data.facets.area]) {
+        data.facets.area = areaMap[data.facets.area]
+    }
+    return data
+}
