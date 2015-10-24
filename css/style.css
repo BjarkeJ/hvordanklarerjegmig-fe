@@ -8,10 +8,26 @@ body {
 
 .container-dark {
   color: #fff;
-  background: rgba(0,0,0,0.5);
-  padding: 2em 0;
+  background: rgba(0, 0, 0,0.3);
+  padding-top: 1em;
+  padding-bottom: 1em;
+
 }
 
+.box-height {
+
+  min-height: 310px;
+
+}
+
+.clicky {
+  cursor: pointer;
+  color: #CCC;
+}
+
+.clicky:hover {
+  color: #FFF;
+}
 
 @font-face {
     font-family: 'Smiley-Regular';
@@ -31,7 +47,7 @@ body {
 .grade {
   font-size: 5em;
   line-height: 1em;
-  padding: 0.2em;
+  padding: 0 0.2em 0.2em 0.2em;
 }
 
 .grade-5::before {
@@ -55,46 +71,6 @@ body {
   color: #EA7373;
 }
 
-/* entire container, keeps perspective */
-.flip-container {
-  perspective: 1000;
-}
-  /* flip the pane when hovered */
-  .flip-container:hover .flipper, .flip-container.hover .flipper {
-    transform: rotateY(180deg);
-  }
-
-.flip-container, .front, .back {
-  width: 320px;
-  height: 360px;
-}
-
-/* flip speed goes here */
-.flipper {
-  transition: 0.6s;
-  transform-style: preserve-3d;
-
-  position: relative;
-}
-
-/* hide back of pane during swap */
-.front, .back {
-  backface-visibility: hidden;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 0 1em;
-}
-
-/* front pane, placed above back */
-.front {
-  z-index: 2;
-  /* for firefox 31 */
-  transform: rotateY(0deg);
-}
-
-/* back, initially hidden pane */
-.back {
-  transform: rotateY(180deg);
+.container-dark h1 small {
+  color: #CCC;
 }

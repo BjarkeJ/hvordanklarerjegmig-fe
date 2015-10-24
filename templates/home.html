@@ -1,7 +1,7 @@
 <br><br>
 <div class="container text-center">
 	<h1 style="color: #FFF">Benchmark din virksomhed</h1>
-	<p class="lead" style="color: #AAA">Hvordan klarer du dig sammenlignet med dine konkurrenter?</p>
+	<p class="lead" style="color: #CCC">Hvordan klarer du dig sammenlignet med dine konkurrenter?</p>
 	<br><br>
 	<form class="form-inline">
 	  <div class="input-group input-group-lg">
@@ -11,6 +11,8 @@
 	  	</span>
 	  </div>
 	</form>
+	<br>
+	<div ng-show="err" class="alert alert-danger" style="display: inline-block" role="alert">Beklager. Vi kunde ikke finde din virksomhed.</div>
 </div>
 <br><br>
 
@@ -60,7 +62,7 @@
 	<div class="container">
 		<div class="row">
 			<!-- Nøgletal: overskud / grossProfit -->
-			<div class="col-sm-5 container-dark">
+			<div class="col-sm-5 container-dark box-height">
 				<div class="pull-left"><i class="fa fa-money fa-5x" style="padding: 0.2em;"></i></div>
 				<h2 class="text-center">Overskud</h2>
 				<br><br><br>
@@ -71,7 +73,7 @@
 			</div>
 
 			<!-- Nøgletal: lønkrone / employeeRatio -->
-			<div class="col-sm-5 col-sm-offset-2 container-dark">
+			<div class="col-sm-5 col-sm-offset-2 container-dark box-height">
 				<div class="pull-left"><i class="fa fa-male fa-5x" style="padding: 0.2em;"></i></div>
 				<h2 class="text-center">Lønkrone</h2>
 				<br><br><br>
@@ -82,13 +84,15 @@
 					Konkurrenter: <strong>{{ benchmark.metrics.employeeRatio.median | percentage: 0 }}</strong><br>
 
 				</p>
-				<p>For hver krone du investerer i ansatte tjener du <strong>{{ benchmark.metrics.employeeRatio.own }} kr.</strong> Dine konkurrenter tjener <strong>{{ benchmark.metrics.employeeRatio.median }} kr.</strong> når de investerer en krone.</p>
+				<br>
+				<i class="fa fa-question-circle fa-2x clicky" ng-click="showBox.employeeRatio = 'info'"></i>
+				<div style="padding-top: 1em;" ng-show="showBox.employeeRatio === 'info'"><h4>Forklaring</h4><p style="color: #CCC; ">For hver krone du investerer i ansatte tjener du <strong>{{ benchmark.metrics.employeeRatio.own }} kr.</strong> Dine konkurrenter tjener <strong>{{ benchmark.metrics.employeeRatio.median }} kr.</strong> når de investerer en krone.</p></div>
 			</div>
 		</div>
 		<div class="clearfix" style="height: 2em;"></div>
 		<div class="row">
 			<!-- Nøgletal: værdier -->
-			<div class="col-sm-5 container-dark">
+			<div class="col-sm-5 container-dark box-height">
 
 				<div class="pull-left"><i class="fa fa-tree fa-5x" style="padding: 0.2em;"></i></div>
 				<h2 class="text-center">Værdier</h3>
@@ -100,13 +104,15 @@
 					Konkurrenter: <strong>{{ benchmark.metrics.roi.median | percentage: 0 }}</strong><br>
 
 				</p>
+				<br>
+				<p style="color: #CCC">For hver krone du investerer i ansatte tjener du <strong>{{ benchmark.metrics.employeeRatio.own }} kr.</strong> Dine konkurrenter tjener <strong>{{ benchmark.metrics.employeeRatio.median }} kr.</strong> når de investerer en krone.</p>
 
 
 			</div>
 
 
 			<!-- Nøgletal: gæld -->
-			<div class="col-sm-5 col-sm-offset-2 container-dark">
+			<div class="col-sm-5 col-sm-offset-2 container-dark box-height">
 
 				<div class="pull-left"><i class="fa fa-university fa-5x" style="padding: 0.2em;"></i></div>
 				<h2 class="text-center">Gæld</h3>
@@ -118,6 +124,8 @@
 					Konkurrenter: <strong>{{ benchmark.metrics.currentRatio.median | percentage: 0 }}</strong><br>
 
 				</p>
+				<br>
+				<p style="color: #CCC">For hver krone du investerer i ansatte tjener du <strong>{{ benchmark.metrics.employeeRatio.own }} kr.</strong> Dine konkurrenter tjener <strong>{{ benchmark.metrics.employeeRatio.median }} kr.</strong> når de investerer en krone.</p>
 			</div>
 		</div>
 	</div>
@@ -132,6 +140,22 @@
 			<ul class="list-unstyled">
 			  <li ng-repeat="competitors in benchmark.competitors">{{ competitors }}</li>
 			</ul>
+		</div>
+	</div>
+
+	<div class="clearfix" style="height: 2em;"></div>
+
+	<!-- Smiley forklaring -->
+	<div class="container container-dark text-center">
+		<div class="row">
+			<h1 class="text-center">Vores smiley-rating</h1>
+			<br>
+
+			<span class="smiley-font grade grade-1"></span>
+			<span class="smiley-font grade grade-2"></span>
+			<span class="smiley-font grade grade-3"></span>
+			<span class="smiley-font grade grade-4"></span>
+			<span class="smiley-font grade grade-5"></span>
 		</div>
 	</div>
 
