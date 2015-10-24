@@ -32,9 +32,11 @@
 				<h1>{{ benchmark.name }}</h1>
 				<p>Din virksomhed bliver her sammmenlignet med konkurrenter som:</p>
 					er
-				  <label>inde for <span class="badge"><input type="checkbox" checked>  samme branch </span></label>
-				  <label>i <span class="badge"><input type="checkbox" checked> {{ benchmark.facets.area }} </span></label>
-				  <label>med <span class="badge"><input type="checkbox" checked> {{ benchmark.facets.employees }} ansatte </span></label>
+				  <label>inde for <span class="badge"><input type="checkbox" ng-model="industry" checked>  samme branch </span></label>
+				  <label>i <span class="badge"><input type="checkbox" ng-model="area" checked> {{ benchmark.facets.area }} </span></label>
+				  <label>med <span class="badge"><input type="checkbox" ng-model="employees" checked> {{ benchmark.facets.employees }} ansatte </span></label>
+
+  		  	       <button type="submit" class="btn btn-primary" ng-disabled="loading" ng-click="getBenchmark()">Opdatér</button>
 
 					<p>På baggrund af dit <span class="badge"> {{ benchmark.fiscalYear }}</span> regnskab</p>
 			</div>

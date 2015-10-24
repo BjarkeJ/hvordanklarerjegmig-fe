@@ -1,5 +1,10 @@
 app.controller("ctrl", function($scope, benchmarkService) {
 
+    // $scope.cvrNr = '77818111'
+    $scope.industry = true
+    $scope.area = true
+    $scope.employees = true
+
 	$scope.getBenchmark = function () {
 
     $scope.loading = true;
@@ -11,7 +16,13 @@ app.controller("ctrl", function($scope, benchmarkService) {
       currentRatio: 'none',
     };
 
-		benchmarkService.get({ cvrNr: $scope.cvrNr }, function(err, benchmark) {
+        var params = {
+            cvrNr: $scope.cvrNr,
+            industry: $scope.industry,
+            area: $scope.area,
+            employees: $scope.employees
+        }
+		benchmarkService.get(params, function(err, benchmark) {
         if(err) $scope.err = true;
 	    	$scope.benchmark = benchmark;
         $scope.loading = false;
