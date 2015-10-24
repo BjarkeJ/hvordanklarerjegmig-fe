@@ -1,5 +1,5 @@
 body {
-	background-image: url('../img/bg.jpg');
+	background-image: url('../img/bg3.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -8,5 +8,93 @@ body {
 
 .container-dark {
   color: #fff;
-  background: rgba(0,0,0,0.8); padding: 2em 0
+  background: rgba(0,0,0,0.5);
+  padding: 2em 0;
+}
+
+
+@font-face {
+    font-family: 'Smiley-Regular';
+    src:url('../assets/Smiley-Regular.ttf.woff') format('woff'),
+        url('Smiley-Regular.ttf.svg#Smiley-Regular') format('svg'),
+        url('Smiley-Regular.ttf.eot'),
+        url('Smiley-Regular.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.smiley-font {
+   font-family: 'Smiley-Regular';
+}
+
+.grade {
+  font-size: 5em;
+  line-height: 1em;
+  padding: 0.2em;
+}
+
+.grade-5::before {
+  content: "9";
+  color: #81FB92;
+}
+.grade-4::before {
+  content: "A";
+  color: #A1D674;
+}
+.grade-3::before {
+  content: "F";
+  color: #E1EA73;
+}
+.grade-2::before {
+  content: "J";
+  color: #EAAC73;
+}
+.grade-1::before {
+  content: "L";
+  color: #EA7373;
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000;
+}
+  /* flip the pane when hovered */
+  .flip-container:hover .flipper, .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+  }
+
+.flip-container, .front, .back {
+  width: 320px;
+  height: 360px;
+}
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+  backface-visibility: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 1em;
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
 }

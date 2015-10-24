@@ -1,7 +1,7 @@
-
 <br><br>
 <div class="container text-center">
 	<h1 style="color: #FFF">Benchmark din virksomhed</h1>
+	<p class="lead" style="color: #AAA">Hvordan klarer du dig sammenlignet med dine konkurrenter?</p>
 	<br><br>
 	<form class="form-inline">
 	  <div class="input-group input-group-lg">
@@ -14,21 +14,27 @@
 </div>
 <br><br>
 
-<div ng-show="benchmark" >
+<div ng-show="loading" class="text-center" style="color: #fff">
+<i class="fa fa-circle-o-notch fa-spin fa-5x"></i><br><br>
+<p class="lead">Vi forbereder din benchmark</p>
+</div>
 
+<div ng-show="benchmark && !loading">
+
+	<!-- Virksomhed -->
 	<div class="container container-dark">
 
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
-				<h1>Hackathon ApS</h1>
-				<p style="color: #AAA">CVR: 1234</p>
+				<p style="color: #AAA; float: right;">CVR: {{benchmark.cvr}}</p>
+				<h1>{{ benchmark.name }}</h1>
 				<p>Din virksomhed bliver her sammmenlignet med konkurrenter som:</p>
+					er
+				  <label>inde for <span class="badge"><input type="checkbox" checked>  samme branch </span></label>
+				  <label>i <span class="badge"><input type="checkbox" checked> {{ benchmark.facets.area }} </span></label>
+				  <label>med <span class="badge"><input type="checkbox" checked> {{ benchmark.facets.employees }} ansatte </span></label>
 
-				  <label><input type="checkbox" checked> er inde for <span class="badge">samme branch </span></label>
-				  <label><input type="checkbox" checked> i <span class="badge">sjælland </span></label>
-				  <label><input type="checkbox" checked> med <span class="badge">1-5 ansatte </span></label>
-
-				<p>På baggrund af dit <span class="badge"> 2015</span> regnskab</p>
+					<p>På baggrund af dit <span class="badge"> {{ benchmark.fiscalYear }}</span> regnskab</p>
 			</div>
 		</div>
 	</div>
@@ -36,31 +42,97 @@
 
 	<div class="clearfix" style="height: 2em;"></div>
 
-	<div class="container container-dark">
+	<!-- Nøgletal: placering / resultBeforeTax -->
+	<div class="container">
 		<div class="row">
-			<div class="col-sm-10 col-sm-offset-1">
-				<h2>Overskud</h2>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-5 col-sm-offset-1">
-			<h3>Solidaritetsgrad</h3>
-			</div>
-			<div class="col-sm-5 col-sm-offset-1">
-			<h3>Likviditetsgrad</h3>
-			</div>
-		</div>
-		<div class="clearfix" style="height: 2em;"></div>
-		<div class="row">
-			<div class="col-sm-5 col-sm-offset-1">
-				<h3>Afkastsgrad</h3>
-			</div>
-			<div class="col-sm-5 col-sm-offset-1">
-				<h3>Yolo</h3>
+			<div class="col-sm-6 col-sm-offset-3 container-dark">
+				<div class="smiley-font pull-right grade grade-{{ benchmark.metrics.resultBeforeTax.rating }}"></div>
+				<div class="pull-left"><i class="fa fa-trophy fa-5x" style="padding: 0.2em;"></i></div>
+				<h2 class="text-center">Din placering</h2>
+				<h1 class="text-center">{{ benchmark.metrics.resultBeforeTax.rank }} <small>af {{ benchmark.metrics.resultBeforeTax.size }}</small></h1>
 			</div>
 		</div>
 	</div>
 
-</div>
+	<div class="clearfix" style="height: 2em;"></div>
 
-	{{ benchmark }}
+	<!-- Nøgletal øvrige -->
+	<div class="container">
+		<div class="row">
+			<!-- Nøgletal: overskud / grossProfit -->
+			<div class="col-sm-5 container-dark">
+				<div class="pull-left"><i class="fa fa-money fa-5x" style="padding: 0.2em;"></i></div>
+				<h2 class="text-center">Overskud</h2>
+				<br><br><br>
+
+				<div class="smiley-font pull-right grade grade-{{ benchmark.metrics.grossProfit.rating }}"></div>
+				<p class="lead">Dit overskud var <strong>{{ benchmark.metrics.grossProfit.own | number: 0 }} kr.</strong> mens konkurrenternes var  <strong>{{ benchmark.metrics.grossProfit.median | number: 0 }} kr.</strong></p>
+
+			</div>
+
+			<!-- Nøgletal: lønkrone / employeeRatio -->
+			<div class="col-sm-5 col-sm-offset-2 container-dark">
+				<div class="pull-left"><i class="fa fa-male fa-5x" style="padding: 0.2em;"></i></div>
+				<h2 class="text-center">Lønkrone</h2>
+				<br><br><br>
+
+				<div class="smiley-font pull-right grade grade-{{ benchmark.metrics.employeeRatio.rating }}"></div>
+				<p class="lead">
+					Dig: <strong>{{ benchmark.metrics.employeeRatio.own | percentage: 0 }}</strong><br>
+					Konkurrenter: <strong>{{ benchmark.metrics.employeeRatio.median | percentage: 0 }}</strong><br>
+
+				</p>
+				<p>For hver krone du investerer i ansatte tjener du <strong>{{ benchmark.metrics.employeeRatio.own }} kr.</strong> Dine konkurrenter tjener <strong>{{ benchmark.metrics.employeeRatio.median }} kr.</strong> når de investerer en krone.</p>
+			</div>
+		</div>
+		<div class="clearfix" style="height: 2em;"></div>
+		<div class="row">
+			<!-- Nøgletal: værdier -->
+			<div class="col-sm-5 container-dark">
+
+				<div class="pull-left"><i class="fa fa-tree fa-5x" style="padding: 0.2em;"></i></div>
+				<h2 class="text-center">Værdier</h3>
+				<br><br><br>
+
+				<div class="smiley-font pull-right grade grade-{{ benchmark.metrics.roi.rating }}"></div>
+				<p class="lead">
+					Dig: <strong>{{ benchmark.metrics.roi.own | percentage: 0 }}</strong><br>
+					Konkurrenter: <strong>{{ benchmark.metrics.roi.median | percentage: 0 }}</strong><br>
+
+				</p>
+
+
+			</div>
+
+
+			<!-- Nøgletal: gæld -->
+			<div class="col-sm-5 col-sm-offset-2 container-dark">
+
+				<div class="pull-left"><i class="fa fa-university fa-5x" style="padding: 0.2em;"></i></div>
+				<h2 class="text-center">Gæld</h3>
+				<br><br><br>
+
+				<div class="smiley-font pull-right grade grade-{{ benchmark.metrics.currentRatio.rating }}"></div>
+				<p class="lead">
+					Dig: <strong>{{ benchmark.metrics.currentRatio.own | percentage: 0 }}</strong><br>
+					Konkurrenter: <strong>{{ benchmark.metrics.currentRatio.median | percentage: 0 }}</strong><br>
+
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="clearfix" style="height: 2em;"></div>
+
+	<!-- Konkurrenter -->
+	<div class="container container-dark text-center">
+		<div class="row">
+			<h1 class="text-center">Du sammenlignes blandt andet med</h1>
+			<br>
+			<ul class="list-unstyled">
+			  <li ng-repeat="competitors in benchmark.competitors">{{ competitors }}</li>
+			</ul>
+		</div>
+	</div>
+
+</div>
