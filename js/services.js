@@ -13,7 +13,7 @@ app.factory('benchmarkService', function($resource, $http) {
 		    // when the response is available
 		    console.log('Response:');
 		    console.log(res);
-        callback(null, res.data);
+        callback(null, decorateData(res.data));
 		  }, function errorCallback(res) {
 		    // called asynchronously if an error occurs
 		    // or server returns response with an error status.
@@ -97,3 +97,13 @@ app.factory('benchmarkService', function($resource, $http) {
 	// 	}
 	// };
 });
+
+var areaMap = {
+    16: 'København'
+}
+function decorateData(data) {
+    if (areaMap[data.facets.area]) {
+        data.facets.area = areaMap[data.facets.area]
+    }
+    return data
+}

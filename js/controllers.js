@@ -1,6 +1,6 @@
 app.controller("ctrl", function($scope, benchmarkService) {
 
-    // $scope.cvrNr = '77818111'
+    $scope.cvrNr = '77818111'
     $scope.industry = true
     $scope.area = true
     $scope.employees = true
