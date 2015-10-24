@@ -95,7 +95,7 @@
 				<div style="padding-top: 1em;" ng-show="showBox.employeeRatio === 'info'">
 
 					<h3>Forklaring</h3>
-					<p style="color: #CCC; ">For hver krone du investerer i ansatte tjener du <strong>{{ benchmark.metrics.employeeRatio.own }} kr.</strong> Dine konkurrenter tjener <strong>{{ benchmark.metrics.employeeRatio.median }} kr.</strong> når de investerer en krone.</p>
+					<p style="color: #CCC; ">For hver krone du investerer i ansatte tjener du <strong>{{ benchmark.metrics.employeeRatio.own | number: 2 }} kr.</strong> Dine konkurrenter tjener <strong>{{ benchmark.metrics.employeeRatio.median | number: 2 }} kr.</strong> når de investerer en krone.</p>
 
 				</div>
 
@@ -136,6 +136,29 @@
 				</p>
 				<br>
 
+				<i class="fa fa-question-circle fa-2x clicky" ng-click="showBox.roi = 'info'"></i>&nbsp;&nbsp;<i class="fa fa-lightbulb-o fa-2x clicky" ng-click="showBox.roi = 'advise'"></i>
+
+
+				<div style="padding-top: 1em;" ng-show="showBox.roi === 'info'">
+
+					<h3>Forklaring</h3>
+					<p style="color: #CCC; ">Er du god til at udnytte dit udstyr, f.eks. computere og biler og dine ejendomme til at tjene penge.</p>
+
+				</div>
+
+
+				<div style="padding-top: 1em;" ng-show="showBox.roi === 'advise'">
+
+					<h3>Anbefalinger</h3>
+
+					<p style="font-weight: bold">Ligger du under gennemsnittet blandt dine konkurrenter, kan du kigge på om:</p>
+
+					<p style="color: #CCC; ">Du har for mange biler, bygninger eller andet udstyr som ikke udnyttes godt nok. Måske kan du sælge noget fra uden at det påvirker din indtjening særligt.</p>
+
+					<p style="color: #CCC; ">Du kan udskifte gammelt udstyr, f.eks. maskiner, til nyere og mere effektivt udstyr.
+					</p>
+				</div>
+
 			</div>
 
 
@@ -154,6 +177,45 @@
 				</p>
 				<br>
 
+
+				<i class="fa fa-question-circle fa-2x clicky" ng-click="showBox.currentRatio = 'info'"></i>&nbsp;&nbsp;<i class="fa fa-lightbulb-o fa-2x clicky" ng-click="showBox.currentRatio = 'advise'"></i>
+
+
+				<div style="padding-top: 1em;" ng-show="showBox.currentRatio === 'info'">
+
+					<h3>Forklaring</h3>
+					<p style="color: #CCC; ">Likviditetsnøgletal fortæller om du er i stand til at betale dine regninger på kort sigt.</p>
+
+					<p style="color: #CCC; ">Er dit tal under 1 er det vigtigt at du får adgang til nogle flere penge snarest.</p>
+
+					<p style="color: #CCC; ">Er dit tal over 5 er det typisk et udtryk for at du har nogle penge liggende som du kunne udnytte bedre ved at investere i din virksomhed til f.eks. drift, salg eller nye projekter.</p>
+
+					<p style="color: #CCC; ">Dit tal skal typisk helst være omkring 2 for at du en god balance mellem muligheden for at betale regninger men samtidig  udnytter du de penge du har til rådighed til drive din forretning.</p>
+
+				</div>
+
+
+				<div style="padding-top: 1em;" ng-show="showBox.currentRatio === 'advise'">
+
+					<h3>Anbefalinger</h3>
+
+					<p style="font-weight: bold">Ligger du for lavt blandt dine konkurrenter, kan du kigge på om:</p>
+
+					<p style="color: #CCC; ">Du kan give kortere betalingsbetingelser til dine kunder.</p>
+
+					<p style="color: #CCC; ">Du kan forhandle længere betalingsbetingelser fra dine leverandører.</p>
+
+					<p style="color: #CCC; ">Du kan få lagt kassekreditten om til et fast lån.</p>
+
+					<p style="color: #CCC; ">Du kan udskifte gammelt udstyr, f.eks. maskiner, til nyere og mere effektivt udstyr.
+					</p>
+
+					<p style="font-weight: bold">Ligger du for højt blandt dine konkurrenter, kan du kigge på om:</p>
+
+					<p style="color: #CCC; ">Kan du starte nye projekter der skaber indtjening.</p>
+
+					<p style="color: #CCC; ">Du kan øge dit marketingsbudget.</p>
+				</div>
 
 
 			</div>
