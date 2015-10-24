@@ -11,17 +11,12 @@ app.factory('benchmarkService', function($resource, $http) {
 			}).then(function successCallback(res) {
 		    // this callback will be called asynchronously
 		    // when the response is available
-		    console.log('Response:');
-		    console.log(res);
         callback(null, res.data);
 		  }, function errorCallback(res) {
 		    // called asynchronously if an error occurs
 		    // or server returns response with an error status.
-		    console.log('Response:');
-		    console.log(res);
         callback('fejl', null);
 
-        //77818111
 		  });
 
 		}

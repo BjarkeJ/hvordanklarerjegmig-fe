@@ -2,6 +2,7 @@ app.controller("ctrl", function($scope, benchmarkService) {
 
 	$scope.getBenchmark = function () {
 
+    $scope.cvrNr = '77818111';
     $scope.loading = true;
     $scope.err = false;
     $scope.boxShow = {

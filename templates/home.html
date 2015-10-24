@@ -12,6 +12,8 @@
 	  </div>
 	</form>
 	<br>
+	<p style="color: #CCC">F.eks. 77818111</p>
+	<br>
 	<div ng-show="err" class="alert alert-danger" style="display: inline-block" role="alert">Beklager. Vi kunde ikke finde din virksomhed.</div>
 </div>
 <br><br>
@@ -85,8 +87,36 @@
 
 				</p>
 				<br>
-				<i class="fa fa-question-circle fa-2x clicky" ng-click="showBox.employeeRatio = 'info'"></i>
-				<div style="padding-top: 1em;" ng-show="showBox.employeeRatio === 'info'"><h4>Forklaring</h4><p style="color: #CCC; ">For hver krone du investerer i ansatte tjener du <strong>{{ benchmark.metrics.employeeRatio.own }} kr.</strong> Dine konkurrenter tjener <strong>{{ benchmark.metrics.employeeRatio.median }} kr.</strong> når de investerer en krone.</p></div>
+
+
+				<i class="fa fa-question-circle fa-2x clicky" ng-click="showBox.employeeRatio = 'info'"></i>&nbsp;&nbsp;<i class="fa fa-lightbulb-o fa-2x clicky" ng-click="showBox.employeeRatio = 'advise'"></i>
+
+
+				<div style="padding-top: 1em;" ng-show="showBox.employeeRatio === 'info'">
+
+					<h3>Forklaring</h3>
+					<p style="color: #CCC; ">For hver krone du investerer i ansatte tjener du <strong>{{ benchmark.metrics.employeeRatio.own }} kr.</strong> Dine konkurrenter tjener <strong>{{ benchmark.metrics.employeeRatio.median }} kr.</strong> når de investerer en krone.</p>
+
+				</div>
+
+
+				<div style="padding-top: 1em;" ng-show="showBox.employeeRatio === 'advise'">
+
+					<h3>Anbefalinger</h3>
+
+					<p style="font-weight: bold">Ligger du under gennemsnittet blandt dine konkurrenter, kan du kigge på om:</p>
+
+					<p style="color: #CCC; ">Dine ansatte arbejder effektivt nok. Det kan være at dine medarbejdere ikke har de rigtige værktøjer til rådighed eller der nogle af deres arbejdsopgaver der kan gøres lettere.</p>
+
+					<p style="color: #CCC; ">Der er for mange eller for lidt på arbejde ad gangen. Altså om du i perioder er over- eller underbemandet.</p>
+
+					<p style="color: #CCC; ">Dine medarbejdere har brug for efteruddannelse så de er bedre kvalificeret til at gøre deres arbejde.</p>
+
+					<p style="font-weight: bold;">Ligger du over gennemsnittet blandt dine konkurrenter, kan du kigge på om:</p>
+
+					<p style="color: #CCC; ">Du skal ansætte flere medarbejdere da du er god til at udnytte deres arbejdskraft.</p>
+					</p>
+				</div>
 			</div>
 		</div>
 		<div class="clearfix" style="height: 2em;"></div>
@@ -105,8 +135,6 @@
 
 				</p>
 				<br>
-				<p style="color: #CCC">For hver krone du investerer i ansatte tjener du <strong>{{ benchmark.metrics.employeeRatio.own }} kr.</strong> Dine konkurrenter tjener <strong>{{ benchmark.metrics.employeeRatio.median }} kr.</strong> når de investerer en krone.</p>
-
 
 			</div>
 
@@ -125,7 +153,9 @@
 
 				</p>
 				<br>
-				<p style="color: #CCC">For hver krone du investerer i ansatte tjener du <strong>{{ benchmark.metrics.employeeRatio.own }} kr.</strong> Dine konkurrenter tjener <strong>{{ benchmark.metrics.employeeRatio.median }} kr.</strong> når de investerer en krone.</p>
+
+
+
 			</div>
 		</div>
 	</div>

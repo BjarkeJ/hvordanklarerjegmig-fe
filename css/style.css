@@ -22,11 +22,11 @@ body {
 
 .clicky {
   cursor: pointer;
-  color: #CCC;
+  color: #FFF;
 }
 
 .clicky:hover {
-  color: #FFF;
+  color: #337ab7;
 }
 
 @font-face {
