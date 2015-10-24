@@ -50,11 +50,11 @@ body {
   padding: 0 0.2em 0.2em 0.2em;
 }
 
-.grade-5::before {
+.grade-1::before {
   content: "9";
   color: #81FB92;
 }
-.grade-4::before {
+.grade-2::before {
   content: "A";
   color: #A1D674;
 }
@@ -62,11 +62,11 @@ body {
   content: "F";
   color: #E1EA73;
 }
-.grade-2::before {
+.grade-4::before {
   content: "J";
   color: #EAAC73;
 }
-.grade-1::before {
+.grade-5::before {
   content: "L";
   color: #EA7373;
 }
